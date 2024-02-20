@@ -1,4 +1,4 @@
-module cache
+module github.com/bigbeer1/cache
 
 go 1.21.4
 
