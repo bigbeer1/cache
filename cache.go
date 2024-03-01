@@ -2,7 +2,6 @@ package cache
 
 import (
 	"container/list"
-	"github.com/jinzhu/copier"
 	"github.com/zeromicro/go-zero/core/logx"
 	"github.com/zeromicro/go-zero/core/mathx"
 	"github.com/zeromicro/go-zero/core/syncx"
@@ -100,10 +99,8 @@ func (c *Cache) Get(key string) (any, bool) {
 func (c *Cache) GetAll() map[string]any {
 	c.lock.Lock()
 	defer c.lock.Unlock()
-	var data = make(map[string]any, len(c.data))
 
-	copier.Copy(&data, c.data)
-	return data
+	return c.data
 }
 
 // Set sets value into c with key.
